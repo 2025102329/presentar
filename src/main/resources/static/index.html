@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7dbe6">
+    <title>De la Cruz Fragancias IA</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<!--
+    Los íconos se guardan como símbolos SVG dentro del mismo HTML.
+    Así el sistema funciona sin depender de librerías externas o internet.
+-->
+<svg class="svg-sprite" aria-hidden="true">
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="m3 11 9-7 9 7"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></symbol>
+    <symbol id="icon-perfume" viewBox="0 0 24 24"><path d="M9 3h6M10 3v4h4V3M8 7h8l2 4v9H6v-9l2-4Z"/><path d="M9 12h6v4H9z"/></symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20v-2.2A4.8 4.8 0 0 1 8.3 13h1.4a4.8 4.8 0 0 1 4.8 4.8V20"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14h.8a4.2 4.2 0 0 1 4.2 4.2V20"/></symbol>
+    <symbol id="icon-tree" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="4" cy="20" r="2"/><circle cx="8" cy="20" r="2"/><circle cx="16" cy="20" r="2"/><circle cx="20" cy="20" r="2"/><path d="M12 6v3M6 10h12M6 14v3M18 14v3M4 18h4M16 18h4"/></symbol>
+    <symbol id="icon-order" viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/><path d="M9 13h6"/></symbol>
+    <symbol id="icon-queue" viewBox="0 0 24 24"><rect x="3" y="5" width="5" height="5" rx="1"/><rect x="3" y="14" width="5" height="5" rx="1"/><path d="M11 7.5h10M11 16.5h10M18 5l3 2.5-3 2.5M18 14l3 2.5-3 2.5"/></symbol>
+    <symbol id="icon-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M7.5 16.5 10 14c2-2 2-4 0-6l-1-1M14 17l1-1c2-2 2-4 0-6l-1.5-1.5"/><path d="m13 17 2 2 2-2"/></symbol>
+    <symbol id="icon-history" viewBox="0 0 24 24"><path d="M4 7h14v13H4z"/><path d="M7 4h13v13M8 11h6M8 15h7"/></symbol>
+    <symbol id="icon-ai" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/><circle cx="12" cy="12" r="4"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M20 6v5h-5M4 18v-5h5"/><path d="M18.5 11A7 7 0 0 0 6 7M5.5 13A7 7 0 0 0 18 17"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="icon-package" viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4-8-4Z"/><path d="M4 7v10l8 4 8-4V7M12 11v10"/></symbol>
+    <symbol id="icon-truck" viewBox="0 0 24 24"><path d="M3 6h11v11H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></symbol>
+    <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="icon-zoom-in" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M10 7v6M7 10h6"/></symbol>
+    <symbol id="icon-zoom-out" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M7 10h6"/></symbol>
+    <symbol id="icon-fit" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
+    <symbol id="icon-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+</svg>
+
+<div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+            <div class="brand-card">
+                <img class="brand-logo" src="/assets/logo-perfume.png" alt="Logo De la Cruz Fragancias IA">
+                <div class="brand-copy">
+                    <strong>De la Cruz</strong>
+                    <small>Fragancias IA</small>
+                    <p>Tu esencia, nuestra inteligencia.</p>
+                </div>
+            </div>
+
+            <nav class="nav-list" aria-label="Navegación principal">
+                <button class="nav-item active" data-view="dashboard"><svg class="icon"><use href="#icon-home"></use></svg><span>Panel</span></button>
+                <button class="nav-item" data-view="productos"><svg class="icon"><use href="#icon-perfume"></use></svg><span>Perfumes</span></button>
+                <button class="nav-item" data-view="clientes"><svg class="icon"><use href="#icon-users"></use></svg><span>Clientes</span></button>
+                <button class="nav-item" data-view="arbol"><svg class="icon"><use href="#icon-tree"></use></svg><span>Árbol IA</span></button>
+                <button class="nav-item" data-view="pedidos"><svg class="icon"><use href="#icon-order"></use></svg><span>Pedidos</span></button>
+                <button class="nav-item" data-view="fifo"><svg class="icon"><use href="#icon-queue"></use></svg><span>Cola FIFO</span></button>
+                <button class="nav-item" data-view="rutas"><svg class="icon"><use href="#icon-route"></use></svg><span>Grafo IA</span></button>
+                <button class="nav-item" data-view="historial"><svg class="icon"><use href="#icon-history"></use></svg><span>Historial LIFO</span></button>
+                <button class="nav-item" data-view="decisiones"><svg class="icon"><use href="#icon-ai"></use></svg><span>Decisiones IA</span></button>
+            </nav>
+        </div>
+
+        <div class="sidebar-help">
+            <svg class="icon"><use href="#icon-database"></use></svg>
+            <div><strong>Datos persistentes</strong><p>El sistema guarda clientes, pedidos y decisiones en la base local.</p></div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú"><svg class="icon"><use href="#icon-menu"></use></svg></button>
+                <div>
+                    <p class="eyebrow">Sistema de gestión de pedidos</p>
+                    <h1 id="pageTitle">Panel principal</h1>
+                </div>
+            </div>
+
+            <div class="topbar-center">
+                <label class="search-pill" aria-label="Buscar">
+                    <svg class="icon"><use href="#icon-search"></use></svg>
+                    <input type="search" placeholder="Buscar...">
+                </label>
+            </div>
+
+            <div class="topbar-actions">
+                <div class="status-pill" id="aiStatus">
+                    <span class="status-dot"></span>
+                    <div><strong>Modo local</strong><small>Comprobando IA</small></div>
+                </div>
+                <button class="round-button" id="refreshButton" title="Actualizar datos"><svg class="icon"><use href="#icon-refresh"></use></svg></button>
+                <div class="avatar-badge">DL</div>
+            </div>
+        </header>
+
+        <!-- PANEL PRINCIPAL -->
+        <section class="view active" id="view-dashboard">
+            <div class="welcome-strip">
+                <div><h2>Hola, De la Cruz</h2><p>Gestiona perfumes, clientes y rutas desde un solo espacio.</p></div>
+                <svg class="icon welcome-icon"><use href="#icon-ai"></use></svg>
+            </div>
+
+            <div class="hero-card">
+                <div class="hero-copy">
+                    <span class="soft-badge">Perfumería · estructuras de datos · IA</span>
+                    <h2>Una gestión elegante para cada aroma y cada pedido.</h2>
+                    <p>El proyecto conserva el árbol binario, FIFO, LIFO y grafo, pero con una interfaz profesional, clara y completamente distinta a Data Group.</p>
+                    <div class="hero-actions">
+                        <button class="button primary" data-go="pedidos"><svg class="icon"><use href="#icon-plus"></use></svg>Registrar pedido</button>
+                        <button class="button ghost" data-go="rutas"><svg class="icon"><use href="#icon-route"></use></svg>Generar ruta IA</button>
+                    </div>
+                </div>
+                <div class="hero-art" aria-hidden="true">
+                    <div class="hero-art-card"><img src="/assets/logo-perfume.png" alt=""></div>
+                    <p>Cada aroma cuenta una historia y cada decisión guía una entrega.</p>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <article class="kpi-card peach"><span class="kpi-icon"><svg class="icon"><use href="#icon-users"></use></svg></span><div><small>Clientes</small><strong id="kpiClients">0</strong><em>clientes registrados</em></div></article>
+                <article class="kpi-card lilac"><span class="kpi-icon"><svg class="icon"><use href="#icon-perfume"></use></svg></span><div><small>Perfumes activos</small><strong id="kpiProducts">0</strong><em>fragancias disponibles</em></div></article>
+                <article class="kpi-card butter"><span class="kpi-icon"><svg class="icon"><use href="#icon-order"></use></svg></span><div><small>Pedidos pendientes</small><strong id="kpiPending">0</strong><em>en espera</em></div></article>
+                <article class="kpi-card mint"><span class="kpi-icon"><svg class="icon"><use href="#icon-truck"></use></svg></span><div><small>Listos para ruta</small><strong id="kpiReady">0</strong><em>preparados</em></div></article>
+            </div>
+
+            <div class="content-grid dashboard-grid">
+                <article class="panel">
+                    <div class="panel-head"><div><span class="section-kicker">Actividad reciente</span><h3>Últimos pedidos</h3></div><button class="text-button" data-go="pedidos">Ver todos</button></div>
+                    <div class="table-scroll"><table><thead><tr><th>Pedido</th><th>Cliente</th><th>Perfume</th><th>Total</th><th>Estado</th></tr></thead><tbody id="dashboardOrders"></tbody></table></div>
+                </article>
+                <article class="panel ai-summary">
+                    <div class="panel-head"><div><span class="section-kicker">Inteligencia artificial</span><h3>Última decisión</h3></div><svg class="icon sparkle"><use href="#icon-ai"></use></svg></div>
+                    <p id="lastDecision" class="decision-copy">Aún no hay decisiones registradas.</p>
+                    <div class="route-mini" id="lastRouteMini"><span>Ruta activa</span><strong>Sin ruta generada</strong><small>Prepara pedidos desde la cola FIFO.</small></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- PERFUMES -->
+        <section class="view" id="view-productos">
+            <div class="section-intro"><div><span class="section-kicker">Catálogo</span><h2>Gestión de perfumes</h2><p>Registra nuevas fragancias y consulta el inventario desde una vista uniforme.</p></div></div>
+            <div class="content-grid management-layout">
+                <article class="panel form-panel">
+                    <div class="panel-head"><div><span class="section-kicker">Nuevo perfume</span><h3>Datos de la fragancia</h3></div><span class="panel-icon"><svg class="icon"><use href="#icon-perfume"></use></svg></span></div>
+                    <form id="productForm" class="form-grid">
+                        <label class="field full"><span>Nombre del perfume</span><input name="nombre" required placeholder="Ej. Rose Élixir"></label>
+                        <label class="field"><span>Marca</span><input name="marca" required placeholder="Ej. Maison Lumière"></label>
+                        <label class="field"><span>Familia olfativa</span><select name="familiaOlfativa" required><option value="">Seleccionar</option><option>Floral</option><option>Amaderada</option><option>Cítrica</option><option>Oriental</option><option>Acuática</option><option>Dulce</option></select></label>
+                        <label class="field"><span>Presentación (ml)</span><input name="presentacionMl" type="number" min="1" value="100" required></label>
+                        <label class="field"><span>Precio (S/)</span><input name="precio" type="number" step="0.01" min="0.01" required></label>
+                        <label class="field full"><span>Stock inicial</span><input name="stock" type="number" min="0" value="10" required></label>
+                        <button class="button primary full" type="submit"><svg class="icon"><use href="#icon-plus"></use></svg>Guardar perfume</button>
+                    </form>
+                </article>
+                <article class="panel list-panel">
+                    <div class="panel-head"><div><span class="section-kicker">Inventario</span><h3>Perfumes disponibles</h3></div><input class="compact-search" id="productSearch" placeholder="Buscar perfume..."></div>
+                    <div class="table-scroll"><table><thead><tr><th>Código</th><th>Perfume</th><th>Familia</th><th>Presentación</th><th>Precio</th><th>Stock</th></tr></thead><tbody id="productsTable"></tbody></table></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CLIENTES: usa la misma estructura visual que PEDIDOS -->
+        <section class="view" id="view-clientes">
+            <div class="section-intro"><div><span class="section-kicker">Clientes</span><h2>Gestión de clientes</h2><p>El formulario y el listado comparten el mismo diseño del módulo de pedidos.</p></div></div>
+            <div class="content-grid management-layout">
+                <article class="panel form-panel">
+                    <div class="panel-head"><div><span class="section-kicker">Nuevo cliente</span><h3>Datos personales</h3></div><span class="panel-icon"><svg class="icon"><use href="#icon-users"></use></svg></span></div>
+                    <form id="clientForm" class="form-grid">
+                        <label class="field full"><span>Nombres</span><input name="nombres" required placeholder="Luis Alberto"></label>
+                        <label class="field"><span>Apellido paterno</span><input name="apellidoPaterno" required placeholder="Pérez"></label>
+                        <label class="field"><span>Apellido materno</span><input name="apellidoMaterno" required placeholder="Salazar"></label>
+                        <label class="field"><span>DNI</span><input name="dni" maxlength="12" placeholder="Opcional"></label>
+                        <label class="field"><span>Teléfono</span><input name="telefono" placeholder="987 654 321"></label>
+                        <label class="field full"><span>Correo</span><input name="email" type="email" placeholder="cliente@correo.com"></label>
+                        <label class="field full"><span>Dirección</span><input name="direccion" required placeholder="Av. Principal 123"></label>
+                        <label class="field full"><span>Zona de entrega</span><select name="zona" id="clientZone" required></select></label>
+                        <button class="button primary full" type="submit"><svg class="icon"><use href="#icon-tree"></use></svg>Registrar y ubicar con IA</button>
+                    </form>
+                </article>
+                <article class="panel list-panel">
+                    <div class="panel-head"><div><span class="section-kicker">Directorio</span><h3>Clientes registrados</h3></div><input class="compact-search" id="clientSearch" placeholder="Buscar cliente..."></div>
+                    <div class="table-scroll"><table><thead><tr><th>Código</th><th>Nombre completo</th><th>Nombre visible</th><th>Zona</th><th>Nivel</th></tr></thead><tbody id="clientsTable"></tbody></table></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ÁRBOL BINARIO -->
+        <section class="view" id="view-arbol">
+            <div class="section-intro">
+                <div><span class="section-kicker">Árbol binario</span><h2>Árbol de clientes decidido por IA</h2><p>El árbol ocupa todo el espacio. Los datos del cliente solo aparecen cuando seleccionas “Detalles”.</p></div>
+                <button class="button ghost" data-go="clientes"><svg class="icon"><use href="#icon-plus"></use></svg>Agregar cliente</button>
+            </div>
+            <article class="panel tree-panel">
+                <div class="tree-panel-head">
+                    <div><span class="section-kicker">Visualización</span><h3>Estructura actual</h3></div>
+                    <div class="tree-tools" aria-label="Controles del árbol">
+                        <button class="tool-button" id="treeZoomOut" title="Alejar"><svg class="icon"><use href="#icon-zoom-out"></use></svg></button>
+                        <button class="tool-button" id="treeFit" title="Ajustar al espacio"><svg class="icon"><use href="#icon-fit"></use></svg></button>
+                        <button class="tool-button" id="treeZoomIn" title="Acercar"><svg class="icon"><use href="#icon-zoom-in"></use></svg></button>
+                    </div>
+                </div>
+                <div class="tree-legend"><span><i class="legend-root"></i>Raíz</span><span><i class="legend-node"></i>Cliente</span><span><i class="legend-link"></i>Relación menor / mayor</span></div>
+                <div class="tree-viewport" id="treeViewport">
+                    <div class="tree-canvas" id="treeCanvas"><div class="empty-state"><svg class="icon empty-icon"><use href="#icon-tree"></use></svg><strong>Árbol vacío</strong><span>Registra un cliente para crear la raíz.</span></div></div>
+                </div>
+            </article>
+        </section>
+
+        <!-- PEDIDOS: misma estructura visual que CLIENTES -->
+        <section class="view" id="view-pedidos">
+            <div class="section-intro"><div><span class="section-kicker">Pedidos</span><h2>Gestión de pedidos</h2><p>El formulario y el listado mantienen el mismo orden visual del módulo de clientes.</p></div></div>
+            <div class="content-grid management-layout">
+                <article class="panel form-panel">
+                    <div class="panel-head"><div><span class="section-kicker">Nuevo pedido</span><h3>Datos de la venta</h3></div><span class="panel-icon"><svg class="icon"><use href="#icon-order"></use></svg></span></div>
+                    <form id="orderForm" class="form-grid">
+                        <label class="field full"><span>Cliente</span><select name="clienteId" id="orderClient" required></select></label>
+                        <label class="field full"><span>Perfume</span><select name="productoId" id="orderProduct" required></select></label>
+                        <label class="field"><span>Cantidad</span><input name="cantidad" type="number" min="1" value="1" required></label>
+                        <label class="field"><span>Prioridad</span><select name="prioridad" required><option>NORMAL</option><option>ALTA</option><option>URGENTE</option></select></label>
+                        <button class="button primary full" type="submit"><svg class="icon"><use href="#icon-plus"></use></svg>Registrar pedido</button>
+                    </form>
+                </article>
+                <article class="panel list-panel">
+                    <div class="panel-head"><div><span class="section-kicker">Seguimiento</span><h3>Pedidos registrados</h3></div><input class="compact-search" id="orderSearch" placeholder="Buscar pedido..."></div>
+                    <div class="table-scroll"><table><thead><tr><th>Pedido</th><th>Cliente</th><th>Perfume</th><th>Total</th><th>Prioridad</th><th>Estado</th><th>Acción</th></tr></thead><tbody id="ordersTable"></tbody></table></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FIFO -->
+        <section class="view" id="view-fifo">
+            <div class="section-intro"><div><span class="section-kicker">First In, First Out</span><h2>Cola de atención</h2><p>El primer pedido en entrar es el primero en prepararse.</p></div><button class="button primary" id="attendNextButton"><svg class="icon"><use href="#icon-arrow"></use></svg>Atender siguiente</button></div>
+            <div class="content-grid queue-layout">
+                <article class="panel"><div class="panel-head"><div><span class="section-kicker">Orden real</span><h3>Pedidos pendientes</h3></div><span class="counter-badge" id="queueCount">0</span></div><div id="queueList" class="queue-list"></div></article>
+                <article class="panel fifo-explain"><div class="fifo-visual"><span>1</span><i>→</i><span>2</span><i>→</i><span>3</span></div><h3>Regla FIFO</h3><p>La IA no altera esta estructura. Primero se prepara el pedido más antiguo y luego pasa al grafo.</p></article>
+            </div>
+        </section>
+
+        <!-- GRAFO -->
+        <section class="view" id="view-rutas">
+            <div class="section-intro"><div><span class="section-kicker">Grafo ponderado</span><h2>Ruta de entrega decidida por IA</h2><p>La IA elige el orden de las zonas y el backend valida las conexiones reales.</p></div><button class="button primary" id="generateRouteButton"><svg class="icon"><use href="#icon-ai"></use></svg>Generar ruta IA</button></div>
+            <div class="content-grid route-layout">
+                <article class="panel graph-panel"><div class="graph-legend"><span><i class="legend-edge"></i>Conexión disponible</span><span><i class="legend-route"></i>Ruta seleccionada</span></div><svg id="routeGraph" viewBox="0 0 900 560" aria-label="Grafo de zonas"></svg></article>
+                <article class="panel route-result" id="routeResult"><span class="section-kicker">Resultado</span><h3>Sin ruta generada</h3><p>Atiende pedidos de la cola FIFO y luego genera una ruta.</p></article>
+            </div>
+        </section>
+
+        <!-- LIFO -->
+        <section class="view" id="view-historial">
+            <div class="section-intro"><div><span class="section-kicker">Last In, First Out</span><h2>Historial de acciones</h2><p>La acción más reciente aparece primero.</p></div><button class="button danger" id="popHistoryButton"><svg class="icon"><use href="#icon-history"></use></svg>Retirar último registro</button></div>
+            <article class="panel"><div id="historyList" class="timeline"></div></article>
+        </section>
+
+        <!-- AUDITORÍA IA -->
+        <section class="view" id="view-decisiones">
+            <div class="section-intro"><div><span class="section-kicker">Transparencia</span><h2>Decisiones de inteligencia artificial</h2><p>Las comparaciones del árbol y las rutas quedan registradas con su origen.</p></div></div>
+            <div id="decisionsGrid" class="decisions-grid"></div>
+        </section>
+
+        <footer class="footer">De la Cruz Fragancias IA · Proyecto listo para personalizar</footer>
+    </main>
+</div>
+
+<!-- Ventana de detalles del nodo. Permanece oculta mientras se visualiza el árbol. -->
+<div class="node-modal" id="nodeModal" aria-hidden="true">
+    <button class="node-modal-backdrop" type="button" data-close-node-modal aria-label="Cerrar detalles"></button>
+    <article class="node-modal-card" role="dialog" aria-modal="true" aria-labelledby="nodeModalTitle">
+        <div class="node-modal-head">
+            <div><span class="section-kicker">Detalles del nodo</span><h3 id="nodeModalTitle">Cliente</h3></div>
+            <button class="tool-button" id="nodeModalClose" type="button" aria-label="Cerrar"><svg class="icon"><use href="#icon-close"></use></svg></button>
+        </div>
+        <div class="node-modal-profile"><span class="profile-icon"><svg class="icon"><use href="#icon-user"></use></svg></span><div><strong id="nodeModalAbbreviation">—</strong><small id="nodeModalCode">—</small></div></div>
+        <div id="nodeModalContent" class="detail-list"></div>
+    </article>
+</div>
+
+<div class="toast" id="toast" role="status"><span class="toast-icon">✓</span><div><strong id="toastTitle">Listo</strong><small id="toastMessage"></small></div></div>
+<script src="/js/app.js"></script>
+</body>
+</html>

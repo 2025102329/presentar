@@ -1,0 +1,20 @@
+CONFIGURAR LA INTELIGENCIA ARTIFICIAL
+=====================================
+
+1. Abre el archivo llamado .env que esta en la raiz del proyecto.
+2. Busca esta linea:
+
+   GEMINI_API_KEY=PEGA_AQUI_TU_API_KEY
+
+3. Reemplaza solamente PEGA_AQUI_TU_API_KEY por una API key NUEVA.
+4. Guarda el archivo.
+5. Ejecuta run-windows.bat o, desde VS Code:
+
+   mvn spring-boot:run
+
+6. Abre http://localhost:8081
+
+IMPORTANTE
+- No pegues la API key en index.html, app.js o GitHub.
+- Como una clave anterior fue compartida, debe revocarse y reemplazarse.
+- En "Decisiones IA", el origen GEMINI confirma una respuesta real de la API.

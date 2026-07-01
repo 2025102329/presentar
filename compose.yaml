@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: fragancias-postgres
+    environment:
+      POSTGRES_DB: fragancias
+      POSTGRES_USER: fragancias
+      POSTGRES_PASSWORD: fragancias123
+    ports:
+      - "5432:5432"
+    volumes:
+      - fragancias_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: fragancias-app
+    depends_on:
+      - postgres
+    environment:
+      SPRING_PROFILES_ACTIVE: cloud
+      DB_URL: jdbc:postgresql://postgres:5432/fragancias
+      DB_USER: fragancias
+      DB_PASSWORD: fragancias123
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.5-flash}
+    ports:
+      - "8080:8080"
+
+volumes:
+  fragancias_data:
